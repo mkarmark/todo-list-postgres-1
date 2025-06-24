@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://todo-list-postgres-db-2--mkuid060700v11nl--user@blackwave-38f9a0e0-westus2-pgsqlserver:ls96TRjx2uylSiUjijQc@blackwave-38f9a0e0-westus2-pgsqlserver.postgres.database.azure.com:5432/todo-list-postgres-db-2--mkuid060700v11nl--db?sslmode=require"
+  shadowDatabaseUrl = "postgresql://s--todo-list-postgres-db-2--mkuid060700v11nl--user@blackwave-38f9a0e0-westus2-pgsqlserver:WMOdVuZr3GYL0URLORps@blackwave-38f9a0e0-westus2-pgsqlserver.postgres.database.azure.com:5432/s--todo-list-postgres-db-2--mkuid060700v11nl--db?sslmode=require"
+}
+
+model Todo {
+  id        Int      @id @default(autoincrement())
+  title     String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
