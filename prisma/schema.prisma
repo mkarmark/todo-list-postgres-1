@@ -11,8 +11,8 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://todo-list-postgres-db-2--mkuid060700v11nl--user@blackwave-38f9a0e0-westus2-pgsqlserver:ls96TRjx2uylSiUjijQc@blackwave-38f9a0e0-westus2-pgsqlserver.postgres.database.azure.com:5432/todo-list-postgres-db-2--mkuid060700v11nl--db?sslmode=require"
-  shadowDatabaseUrl = "postgresql://s--todo-list-postgres-db-2--mkuid060700v11nl--user@blackwave-38f9a0e0-westus2-pgsqlserver:WMOdVuZr3GYL0URLORps@blackwave-38f9a0e0-westus2-pgsqlserver.postgres.database.azure.com:5432/s--todo-list-postgres-db-2--mkuid060700v11nl--db?sslmode=require"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Todo {
